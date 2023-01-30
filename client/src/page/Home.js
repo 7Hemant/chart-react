@@ -38,7 +38,7 @@ const Home = () => {
   const Region = posts
     ?.filter((post) => post?.region != "")
     .sort((a, b) => a?.relevance - b?.relevance);
-  console.log(Region);
+
   const Pestle = posts
     ?.filter((post) => post?.pestle != "")
     .sort((a, b) => a?.relevance - b?.relevance);
@@ -48,7 +48,12 @@ const Home = () => {
   const Country = posts
     ?.filter((post) => post?.country != "")
     .sort((a, b) => a?.relevance - b?.relevance);
-
+  console.log(
+    posts?.filter(
+      (post) =>
+        post?.intensity != null && post?.likelihood != null && post?.source
+    )
+  );
   useEffect(() => {
     setYearEnd({
       labels: endYear.map((data) => data?.end_year),
@@ -139,56 +144,56 @@ const Home = () => {
   }, [posts]);
   return (
     <div>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {isloading && <LineChart chartdata={yearend} />}
       </div>
-      {/* <div style={{ width: 700 }}>
+      {/* <div style={{ maxWidth: 1100 }}>
         {isloading && <RadarChart chartdata={yearend} />}
       </div>
       {isloading && <ScatterChart chartdata={yearend} />}
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {isloading && <DoughnutChart chartdata={yearend} />}
       </div>
       {isloading && <BubbleChart chartdata={yearend} />}
       {isloading && <BarChart chartdata={yearend} />} */}
 
       <h1>second chart</h1>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {isloading && <LineChart chartdata={topic} />}
       </div>
       {/* {isloading && <RadarChart chartdata={topic} />}
       {isloading && <DoughnutChart chartdata={topic} />}
       {isloading && <BarChart chartdata={topic} />} */}
       <h1>three Chart</h1>
-      <div style={{ width: 700 }}>
-        {/* {isloading && <LineChart chartdata={sector} />} */}
-        {isloading && <RadarChart chartdata={sector} />}
+      <div style={{ maxWidth: 1100 }}>
+        {isloading && <LineChart chartdata={sector} />}
+        {/* {isloading && <RadarChart chartdata={sector} />} */}
         {/* {isloading && <DoughnutChart chartdata={sector} />}
       {isloading && <BarChart chartdata={sector} />} */}
       </div>
       <h1>four chart</h1>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {isloading && <LineChart chartdata={region} />}
         {/* {isloading && <RadarChart chartdata={region} />} */}
         {/* {isloading && <DoughnutChart chartdata={region} />} */}
         {/* {isloading && <BarChart chartdata={region} />} */}
       </div>
       <h1>five Chart</h1>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {/* {isloading && <LineChart chartdata={pestle} />}
       {isloading && <RadarChart chartdata={pestle} />}
       {isloading && <DoughnutChart chartdata={pestle} />} */}
         {isloading && <BarChart chartdata={pestle} />}
       </div>
       <h1>six chart</h1>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {/* {isloading && <LineChart chartdata={source} />} */}
         {isloading && <RadarChart chartdata={source} />}
         {/* {isloading && <DoughnutChart chartdata={source} />} */}
         {/* {isloading && <BarChart chartdata={source} />} */}
       </div>
       <h1>seven chart</h1>
-      <div style={{ width: 700 }}>
+      <div style={{ maxWidth: 1100 }}>
         {isloading && <LineChart chartdata={country} />}
         {/* {isloading && <RadarChart chartdata={country} />}
       {isloading && <DoughnutChart chartdata={country} />}
