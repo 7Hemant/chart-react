@@ -15,6 +15,7 @@ const Home = () => {
   const [pestle, setPestle] = useState([]);
   const [source, setSource] = useState([]);
   const [country, setCountry] = useState([]);
+  const [display, setDisplay] = useState();
   const [isloading, setLoading] = useState(false);
   const apiCall = async () => {
     await axios.get("http://localhost:5000/").then((res) => {
@@ -55,6 +56,13 @@ const Home = () => {
         {
           label: endYear.map((data) => data?.title),
           data: endYear.map((data) => data?.relevance),
+          backgroundColor: [
+            "rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
         },
       ],
     });
@@ -71,8 +79,15 @@ const Home = () => {
       labels: Sector.map((data) => data?.sector),
       datasets: [
         {
-          label: Sector.map((data) => data?.title),
+          label: Sector.map((data) => data?.sector),
           data: Sector.map((data) => data?.relevance),
+          backgroundColor: [
+            "rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
         },
       ],
     });
@@ -83,6 +98,13 @@ const Home = () => {
         {
           label: Region.map((data) => data?.title),
           data: Region.map((data) => data?.relevance),
+          backgroundColor: [
+            "rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
         },
       ],
     });
@@ -92,6 +114,7 @@ const Home = () => {
         {
           label: Pestle.map((data) => data?.title),
           data: Pestle.map((data) => data?.relevance),
+          backgroundColor: ["rgba(75,192,192,1)", "#ecf0f1", "#50AF95"],
         },
       ],
     });
@@ -116,43 +139,61 @@ const Home = () => {
   }, [posts]);
   return (
     <div>
-      {isloading && <LineChart chartdata={yearend} />}
-      {isloading && <RadarChart chartdata={yearend} />}
+      <div style={{ width: 700 }}>
+        {isloading && <LineChart chartdata={yearend} />}
+      </div>
+      {/* <div style={{ width: 700 }}>
+        {isloading && <RadarChart chartdata={yearend} />}
+      </div>
       {isloading && <ScatterChart chartdata={yearend} />}
-      {isloading && <DoughnutChart chartdata={yearend} />}
+      <div style={{ width: 700 }}>
+        {isloading && <DoughnutChart chartdata={yearend} />}
+      </div>
       {isloading && <BubbleChart chartdata={yearend} />}
-      {isloading && <BarChart chartdata={yearend} />}
+      {isloading && <BarChart chartdata={yearend} />} */}
 
       <h1>second chart</h1>
-      {isloading && <LineChart chartdata={topic} />}
-      {isloading && <RadarChart chartdata={topic} />}
+      <div style={{ width: 700 }}>
+        {isloading && <LineChart chartdata={topic} />}
+      </div>
+      {/* {isloading && <RadarChart chartdata={topic} />}
       {isloading && <DoughnutChart chartdata={topic} />}
-      {isloading && <BarChart chartdata={topic} />}
+      {isloading && <BarChart chartdata={topic} />} */}
       <h1>three Chart</h1>
-      {isloading && <LineChart chartdata={sector} />}
-      {isloading && <RadarChart chartdata={sector} />}
-      {isloading && <DoughnutChart chartdata={sector} />}
-      {isloading && <BarChart chartdata={sector} />}
+      <div style={{ width: 700 }}>
+        {/* {isloading && <LineChart chartdata={sector} />} */}
+        {isloading && <RadarChart chartdata={sector} />}
+        {/* {isloading && <DoughnutChart chartdata={sector} />}
+      {isloading && <BarChart chartdata={sector} />} */}
+      </div>
       <h1>four chart</h1>
-      {isloading && <LineChart chartdata={region} />}
-      {isloading && <RadarChart chartdata={region} />}
-      {isloading && <DoughnutChart chartdata={region} />}
-      {isloading && <BarChart chartdata={region} />}
+      <div style={{ width: 700 }}>
+        {isloading && <LineChart chartdata={region} />}
+        {/* {isloading && <RadarChart chartdata={region} />} */}
+        {/* {isloading && <DoughnutChart chartdata={region} />} */}
+        {/* {isloading && <BarChart chartdata={region} />} */}
+      </div>
       <h1>five Chart</h1>
-      {isloading && <LineChart chartdata={pestle} />}
+      <div style={{ width: 700 }}>
+        {/* {isloading && <LineChart chartdata={pestle} />}
       {isloading && <RadarChart chartdata={pestle} />}
-      {isloading && <DoughnutChart chartdata={pestle} />}
-      {isloading && <BarChart chartdata={pestle} />}
+      {isloading && <DoughnutChart chartdata={pestle} />} */}
+        {isloading && <BarChart chartdata={pestle} />}
+      </div>
       <h1>six chart</h1>
-      {isloading && <LineChart chartdata={source} />}
-      {isloading && <RadarChart chartdata={source} />}
-      {isloading && <DoughnutChart chartdata={source} />}
-      {isloading && <BarChart chartdata={source} />}
+      <div style={{ width: 700 }}>
+        {/* {isloading && <LineChart chartdata={source} />} */}
+        {isloading && <RadarChart chartdata={source} />}
+        {/* {isloading && <DoughnutChart chartdata={source} />} */}
+        {/* {isloading && <BarChart chartdata={source} />} */}
+      </div>
       <h1>seven chart</h1>
-      {isloading && <LineChart chartdata={country} />}
-      {isloading && <RadarChart chartdata={country} />}
+      <div style={{ width: 700 }}>
+        {isloading && <LineChart chartdata={country} />}
+        {/* {isloading && <RadarChart chartdata={country} />}
       {isloading && <DoughnutChart chartdata={country} />}
-      {isloading && <BarChart chartdata={country} />}
+      {isloading && <BarChart chartdata={country} />} */}
+      </div>
     </div>
   );
 };
